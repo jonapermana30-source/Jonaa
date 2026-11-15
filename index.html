@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JONA SHOP - Belanja mudah, gaya maksimal.">
+  <title>JONA SHOP | Belanja Online</title>
+  <style>
+    :root{--ink:#17211d;--muted:#69736e;--green:#174d3b;--lime:#d8f36a;--cream:#f7f8f3;--line:#e7ebe4}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--cream);color:var(--ink)}
+    button{font:inherit;cursor:pointer}.topbar{background:var(--green);color:#fff;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.08em}
+    header{position:sticky;top:0;z-index:5;background:rgba(247,248,243,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1160px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-size:22px;font-weight:900;letter-spacing:-1px;color:var(--green);text-decoration:none}.logo span{color:#9dbb37}
+    nav{display:flex;gap:26px}nav a{font-size:14px;color:var(--ink);text-decoration:none;font-weight:600}nav a:hover{color:var(--green)}
+    .cart-btn{border:0;background:var(--green);color:white;border-radius:999px;padding:11px 17px;font-weight:700}.cart-count{display:inline-grid;place-items:center;background:var(--lime);color:var(--green);width:20px;height:20px;border-radius:50%;font-size:11px;margin-left:5px}
+    .wrap{max-width:1160px;margin:auto;padding:0 24px}.hero{padding:55px 0 42px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+    .eyebrow{display:inline-block;color:var(--green);background:#eaf1df;padding:8px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.1em}
+    h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.065em;margin:20px 0}.hero p{font-size:16px;line-height:1.7;color:var(--muted);max-width:470px}
+    .primary{display:inline-block;border:0;background:var(--green);color:white;text-decoration:none;padding:14px 22px;border-radius:999px;font-weight:750;margin-top:12px}.hero-art{min-height:390px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(135deg,#dce9c8,#a8c28d);display:grid;place-items:center}
+    .hero-art img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;mix-blend-mode:multiply;opacity:.88}.hero-note{position:absolute;bottom:22px;left:22px;background:#fff;padding:14px 17px;border-radius:15px;font-weight:800;box-shadow:0 8px 30px #193b251a}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 54px}.benefit{background:#fff;border:1px solid var(--line);padding:17px;border-radius:16px;font-size:13px;font-weight:700}.benefit small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-head h2{font-size:34px;letter-spacing:-.045em;margin:0}.section-head p{color:var(--muted);margin:7px 0 0;font-size:14px}
+    .tools{display:flex;gap:10px;margin-bottom:22px}.search{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:12px 17px;background:white;outline:none}.filter{border:1px solid var(--line);border-radius:999px;padding:12px 15px;background:white;color:var(--ink)}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 12px 28px #15271b12}
+    .product img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#edf0e8}.product-info{padding:15px}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#71806f;font-weight:800}.product h3{font-size:15px;margin:7px 0}.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:850;color:var(--green)}.add{border:0;border-radius:50%;width:35px;height:35px;background:var(--lime);color:var(--green);font-size:21px;font-weight:700}
+    .about{margin:65px 0;background:var(--green);color:white;border-radius:26px;padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.about h2{font-size:35px;letter-spacing:-.04em;margin:0 0 12px}.about p{color:#d6e3dc;line-height:1.7;margin:0}.about-stat{display:flex;gap:28px;justify-content:flex-end}.stat strong{display:block;font-size:28px;color:var(--lime)}.stat span{font-size:12px;color:#d6e3dc}
+    footer{border-top:1px solid var(--line);padding:28px 24px;color:var(--muted);font-size:13px}.footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .overlay{position:fixed;inset:0;background:#0d1711a6;z-index:10;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{background:#fff;width:min(420px,100%);height:100%;padding:24px;overflow:auto;box-shadow:-15px 0 50px #0002}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer h2{margin:0}.close{border:0;background:#edf1e9;border-radius:50%;width:36px;height:36px;font-size:20px}.cart-list{margin:25px 0}.cart-item{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}.qty{display:flex;align-items:center;gap:9px}.qty button{border:1px solid var(--line);background:white;border-radius:7px;width:25px;height:25px}.total{display:flex;justify-content:space-between;font-weight:850;font-size:18px;padding:15px 0}.checkout{width:100%;border:0;background:var(--green);color:white;padding:14px;border-radius:12px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:35px 0}
+    .modal{position:fixed;inset:0;z-index:15;background:#0d1711a6;display:none;place-items:center;padding:18px}.modal.show{display:grid}.modal-card{background:#fff;padding:26px;border-radius:20px;max-width:420px;width:100%}.modal-card h2{margin-top:0}.modal-card input,.modal-card textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin:7px 0 12px;font:inherit}.modal-card label{font-size:13px;font-weight:700}.modal-actions{display:flex;gap:10px}.secondary{border:1px solid var(--line);background:#fff;border-radius:10px;padding:13px;flex:1}.modal-actions .checkout{flex:1}
+    @media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:300px}.products{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.about-stat{justify-content:flex-start}}
+    @media(max-width:560px){.nav{padding:14px 17px}.wrap{padding:0 17px}nav{display:none}.hero{padding-top:38px}.hero-art{min-height:245px}.benefits{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.section-head h2{font-size:29px}.tools{flex-direction:column}.products{gap:11px}.product-info{padding:11px}.product h3{font-size:13px}.price{font-size:13px}.about{padding:25px}.about h2{font-size:29px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">✨ SELAMAT DATANG DI JONA SHOP — TEMUKAN FAVORITMU HARI INI</div>
+  <header><div class="nav">
+    <a class="logo" href="#">JONA<span>.</span>SHOP</a>
+    <nav><a href="#home">Beranda</a><a href="#produk">Produk</a><a href="#tentang">Tentang Kami</a></nav>
+    <button class="cart-btn" id="openCart">Keranjang <span class="cart-count" id="cartCount">0</span></button>
+  </div></header>
+  <main class="wrap">
+    <section class="hero" id="home">
+      <div><span class="eyebrow">YOUR DAILY SHOPPING PARTNER</span>
+        <h1>Belanja mudah,<br><span style="color:var(--green)">gaya maksimal.</span></h1>
+        <p>Temukan pilihan produk menarik untuk menemani aktivitasmu. Pilih favorit, masukkan ke keranjang, dan nikmati pengalaman belanja yang praktis bersama JONA SHOP.</p>
+        <a class="primary" href="#produk">Jelajahi Produk&nbsp; ↗</a>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85" alt="Pilihan fashion dan gaya hidup">
+        <div class="hero-note">PILIHAN TERBAIK UNTUKMU ✦</div>
+      </div>
+    </section>
+    <section class="benefits">
+      <div class="benefit">🚚 Pengiriman praktis<small>Pesanan siap diproses dengan mudah</small></div>
+      <div class="benefit">💚 Pilihan berkualitas<small>Produk pilihan untuk kebutuhanmu</small></div>
+      <div class="benefit">🔒 Belanja nyaman<small>Checkout simulasi yang sederhana</small></div>
+    </section>
+    <section id="produk">
+      <div class="section-head"><div><h2>Produk pilihan</h2><p>Temukan produk favoritmu di JONA SHOP.</p></div></div>
+      <div class="tools">
+        <input class="search" id="search" placeholder="Cari nama produk..." aria-label="Cari produk">
+        <select class="filter" id="category" aria-label="Filter kategori"><option value="Semua">Semua kategori</option><option>Fashion</option><option>Aksesoris</option><option>Gaya Hidup</option><option>Elektronik</option></select>
+      </div>
+      <div class="products" id="products"></div>
+    </section>
+    <section class="about" id="tentang">
+      <div><h2>Belanja lebih simpel bersama JONA SHOP.</h2><p>JONA SHOP hadir sebagai konsep toko online yang mengutamakan kemudahan, pilihan produk, dan pengalaman belanja yang menyenangkan. Terima kasih sudah berkunjung!</p></div>
+      <div class="about-stat"><div class="stat"><strong>100%</strong><span>Praktis</span></div><div class="stat"><strong>4+</strong><span>Kategori</span></div><div class="stat"><strong>1</strong><span>Tujuan: puas</span></div></div>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><strong>JONA SHOP</strong><span>© <span id="year"></span> JONA SHOP. Website demo untuk presentasi.</span><span>Belanja mudah, gaya maksimal.</span></div></footer>
+
+  <div class="overlay" id="cartOverlay"><aside class="drawer">
+    <div class="drawer-head"><h2>Keranjang Belanja</h2><button class="close" id="closeCart" aria-label="Tutup">×</button></div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="total"><span>Total</span><span id="cartTotal">Rp0</span></div>
+    <button class="checkout" id="checkout">Lanjut Checkout</button>
+    <p style="font-size:11px;color:#78827b;line-height:1.5">*Checkout ini hanya simulasi untuk keperluan demo/presentasi. Tidak ada pembayaran sungguhan.</p>
+  </aside></div>
+  <div class="modal" id="checkoutModal"><div class="modal-card">
+    <h2>Checkout Demo 🎉</h2><p style="color:#69736e;font-size:13px">Isi data berikut untuk mencoba alur pemesanan.</p>
+    <form id="checkoutForm"><label>Nama lengkap</label><input required placeholder="Nama kamu"><label>Alamat pengiriman</label><textarea required rows="3" placeholder="Alamat lengkap"></textarea><label>Nomor WhatsApp</label><input required type="tel" placeholder="08xxxxxxxxxx">
+      <div class="modal-actions"><button type="button" class="secondary" id="cancelCheckout">Kembali</button><button class="checkout" type="submit">Buat Pesanan</button></div>
+    </form>
+  </div></div>
+  <script>
+    const items = [
+      {id:1,name:"Tote Bag Everyday",cat:"Aksesoris",price:89000,img:"https://images.unsplash.com/photo-159087ка?auto=format&fit=crop&w=700&q=80"},
+      {id:2,name:"Sneakers Casual",cat:"Fashion",price:249000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"},
+      {id:3,name:"Jam Tangan Classic",cat:"Aksesoris",price:179000,img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=700&q=80"},
+      {id:4,name:"Kemeja Daily",cat:"Fashion",price:159000,img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80"},
+      {id:5,name:"Headphone Wireless",cat:"Elektronik",price:329000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"},
+      {id:6,name:"Botol Minum",cat:"Gaya Hidup",price:69000,img:"https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80"},
+      {id:7,name:"Kacamata Urban",cat:"Aksesoris",price:119000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80"},
+      {id:8,name:"Backpack Daily",cat:"Gaya Hidup",price:199000,img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"}
+    ];
+    // Perbaiki URL foto fallback jika sumber eksternal tidak tersedia.
+    items[0].img="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80";
+    items[4].img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80";
+    const cart={};
+    const rupiah=n=>new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
+    const products=document.getElementById("products");
+    function renderProducts(){
+      const q=document.getElementById("search").value.toLowerCase(),cat=document.getElementById("category").value;
+      const filtered=items.filter(p=>(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q))&&(cat==="Semua"||p.cat===cat));
+      products.innerHTML=filtered.length?filtered.map(p=>`<article class="product"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x600/eaf0e4/174d3b?text=JONA+SHOP'"><div class="product-info"><span class="tag">${p.cat}</span><h3>${p.name}</h3><div class="price-row"><span class="price">${rupiah(p.price)}</span><button class="add" aria-label="Tambah ${p.name}" onclick="addToCart(${p.id})">+</button></div></div></article>`).join(""):'<p class="empty">Produk tidak ditemukan. Coba kata kunci lain.</p>';
+    }
+    function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+    function renderCart(){
+      const entries=Object.entries(cart).filter(([,q])=>q>0),list=document.getElementById("cartList");
+      list.innerHTML=entries.length?entries.map(([id,q])=>{const p=items.find(x=>x.id==id);return `<div class="cart-item"><div><strong>${p.name}</strong><br><span style="color:#69736e">${rupiah(p.price)}</span></div><div class="qty"><button onclick="changeQty(${id},-1)">−</button><b>${q}</b><button onclick="changeQty(${id},1)">+</button></div></div>`}).join(""):'<div class="empty">Keranjangmu masih kosong 🛍️</div>';
+      const total=entries.reduce((sum,[id,q])=>sum+items.find(p=>p.id==id).price*q,0);document.getElementById("cartTotal").textContent=rupiah(total);
+      document.getElementById("cartCount").textContent=entries.reduce((s,[,q])=>s+q,0);
+    }
+    function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];renderCart()}
+    document.getElementById("search").addEventListener("input",renderProducts);document.getElementById("category").addEventListener("change",renderProducts);
+    document.getElementById("openCart").onclick=()=>document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("closeCart").onclick=()=>document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartOverlay").addEventListener("click",e=>{if(e.target.id==="cartOverlay")e.currentTarget.classList.remove("show")});
+    document.getElementById("checkout").onclick=()=>{if(!Object.keys(cart).length){alert("Keranjang masih kosong. Tambahkan produk terlebih dahulu.");return}document.getElementById("checkoutModal").classList.add("show")};
+    document.getElementById("cancelCheckout").onclick=()=>document.getElementById("checkoutModal").classList.remove("show");
+    document.getElementById("checkoutForm").onsubmit=e=>{e.preventDefault();alert("Pesanan demo berhasil dibuat! Terima kasih sudah mencoba JONA SHOP.");Object.keys(cart).forEach(k=>delete cart[k]);renderCart();document.getElementById("checkoutModal").classList.remove("show");document.getElementById("cartOverlay").classList.remove("show");e.target.reset()};
+    document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();
+  </script>
+</body>
+</html>
